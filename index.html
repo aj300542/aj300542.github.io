@@ -1,59 +1,111 @@
-
 <!DOCTYPE html>
 <html>
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Clock For EINKBOOK</title>
-  <style>
-    @font-face {
-      font-family: TIME;
-      src: url("time.ttf") format("truetype");
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      height: 100vh;
-      width: 100%;
-      text-align: center;      
-      overflow: hidden;
-    }
-
-    .app {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      -webkit-transform-origin: 0 0;
-    }
-
-    .time {
-      font-family: TIME;
-      margin: 1rem 0;
-    }
-
-    .date {
-      white-space: nowrap;
-    }
-
-    .cn-date {}
-  </style>
-</head>
-
-<body>
-  <div class="app">
-    <div class="date"></div>
-    <div class="time"></div>
-    <div class="cn-date"></div>
-  </div>
-
-  <script src="./calendar.min.js"></script>
-  <script src="./index.min.js"></script>
-</body>
-
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Screen - Multipurpose Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Lightbox-->
+    <link rel="stylesheet" href="vendor/lightbox2/css/lightbox.min.css">
+    <!-- Parallax-->
+    <link rel="stylesheet" href="vendor/onepage-scroll/onepage-scroll.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="favicon.png">
+  </head>
+  <body>
+    <div class="main">
+      <section class="bg-cover bg-center hero">
+        <div class="dark-overlay"></div>
+        <div class="position-relative z-index-1">
+          <div class="container text-center text-white">
+            <p class="font-italic lead">Hi, how are you doing.</p>
+            <h1 class="text-uppercase my-4">My name is aj300</h1>
+            <p class="font-italic lead">Nice to meet you.</p>
+            <p class="font-italic lead">.</p>
+            <p class="font-italic lead">.</p>
+            <p class="font-italic lead">.</p>
+            <p class="font-italic lead">.</p>
+            <p class="font-italic lead">.</p>
+            <p class="font-italic lead">.</p>
+            <p class="font-italic lead">.</p>
+            <p class="font-italic lead">scroll down.</p>
+          </div>
+        </div>
+        <div class="scroll-btn link-scroll"><i class="fas fa-angle-double-down"></i></div>
+      </section>
+      <section id="1">
+        <div class="d-flex h-100 align-items-center">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-lg-6 mb-4 mb-lg-0">
+                <header class="text-center">
+                  <h2 class="text-uppercase lined">┑(￣▽ ￣)┍</h2>
+                </header>
+                <p class="lead">Welcome to my gallery</p>
+                <p>╮(╯▽╰)╭ I will upload my rendering image here, fell free in here.</p>
+                <p>～(￣▽￣～)(～￣▽￣)～Any questions please contact me.</p>
+              </div>
+              <div class="col-lg-6"><img src="img/about.jpg" alt="..." class="img-fluid rounded-circle d-block mx-auto"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="d-flex h-100 align-items-center">
+          <div class="container">
+            <header class="text-center mb-2">
+              <h2 class="text-uppercase lined">Gallery</h2>
+            </header>
+            <div class="row">
+              <div class="col-lg-12 text-center">
+                <p>Welcome to my image gallery.</p>
+              </div>
+              <div class="col-lg-4 col-md-6 mb-4"><a href="img/portfolio-1.jpg" data-lightbox="image-1" data-title="bird" class="d-block mb-1"><img src="img/portfolio-1.jpg" alt="..." class="img-fluid d-block mx-auto"></a></div>
+              <div class="col-lg-4 col-md-6 mb-4"><a href="img/portfolio-2.jpg" data-lightbox="image-1" data-title="car" class="d-block mb-1"><img src="img/portfolio-2.jpg" alt="..." class="img-fluid d-block mx-auto"></a></div>
+              <div class="col-lg-4 col-md-6 mb-4"><a href="img/portfolio-3.jpg" data-lightbox="image-1" data-title="panda" class="d-block mb-1"><img src="img/portfolio-3.jpg" alt="..." class="img-fluid d-block mx-auto"></a></div>
+              <div class="col-lg-4 col-md-6 mb-4"><a href="img/portfolio-4.jpg" data-lightbox="image-1" data-title="Geometry" class="d-block mb-1"><img src="img/portfolio-4.jpg" alt="..." class="img-fluid d-block mx-auto"></a></div>
+              <div class="col-lg-4 col-md-6 mb-4"><a href="img/portfolio-5.jpg" data-lightbox="image-1" data-title="Geographic" class="d-block mb-1"><img src="img/portfolio-5.jpg" alt="..." class="img-fluid d-block mx-auto"></a></div>
+              <div class="col-lg-4 col-md-6 mb-4"><a href="img/portfolio-6.jpg" data-lightbox="image-1" data-title="architecture pattern" class="d-block mb-1"><img src="img/portfolio-6.jpg" alt="..." class="img-fluid d-block mx-auto"></a></div>
+              <div class="col-lg-4 col-md-6 mb-4"><a href="img/portfolio-7.jpg" data-lightbox="image-1" data-title="the legend of zelda" class="d-block mb-1"><img src="img/portfolio-7.jpg" alt="..." class="img-fluid d-block mx-auto"></a></div>
+              <div class="col-lg-4 col-md-6 mb-4"><a href="img/portfolio-8.jpg" data-lightbox="image-1" data-title="space" class="d-block mb-1"><img src="img/portfolio-8.jpg" alt="..." class="img-fluid d-block mx-auto"></a></div>
+              <div class="col-lg-4 col-md-6 mb-4"><a href="img/portfolio-9.jpg" data-lightbox="image-1" data-title="Egyptology" class="d-block mb-1"><img src="img/portfolio-9.jpg" alt="..." class="img-fluid d-block mx-auto"></a></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="bg-gray">
+        <div class="d-flex h-100 align-items-center">
+          <div class="container">
+            <header class="text-center mb-5">
+              <h2 class="text-uppercase lined">Contact page</h2>
+            </header>
+            <div class="row">
+              <div class="col-lg-6">
+                <p>email: sam300542@163.com .</p>
+                <p>phone: Hongkong +852 60779983</p>
+              </div>
+              <div class="col-lg-6">
+                <p>email: 44879425@qq.com .</p>
+                <p>phone: Shenzhen +86 13143832285</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- JavaScript files-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/onepage-scroll/jquery.onepage-scroll.min.js"></script>
+    <script src="vendor/lightbox2/js/lightbox.min.js"></script>
+    <script src="js/front.js"></script>
+  </body>
 </html>
