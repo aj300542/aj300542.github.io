@@ -83,6 +83,35 @@
       top: 35vh;
       z-index: 999;
     }
+        .img-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .hover-text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      /* 或者自定义高度 */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.4);
+      color: #fff;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .p2time:hover .hover-text {
+      opacity: 1;
+    }
+
+    .p3time:hover .hover-text {
+      opacity: 1;
+    }
   </style>
 
 </head>
@@ -91,14 +120,41 @@
   <div class="main">
     <section class="bg-cover bg-center hero">
       <div class="p2time">
-        <a href="https://aj300542.github.io/time/" class="d-block mb-1"><img src="img/p2_time.jpg" alt="..."></a>
-        <a href="https://aj300542.github.io/cloud/" class="d-block mb-1"><img src="img/p2_cloud.jpg" alt="..."></a>
-        <a href="https://aj300542.github.io/music/" class="d-block mb-1"><img src="img/p2_music.png" alt="..."></a>
+        <div class="img-container">
+          <a href="https://aj300542.github.io/time/" class="d-block mb-1">
+            <img src="img/p2_time.jpg" alt="..."></a>
+          <div class="hover-text">卡顿像素时钟</div>
+        </div>
+        <div class="img-container">
+          <a href="https://aj300542.github.io/cloud/" class="d-block mb-1">
+            <img src="img/p2_cloud.jpg" alt="..."></a>
+          <div class="hover-text">芸芸众生</div>
+        </div>
+        <div class="img-container">
+          <a href="https://aj300542.github.io/music/" class="d-block mb-1">
+            <img src="img/p2_music.png" alt="..."></a>
+          <div class="hover-text">随身听音乐复刻</div>
+        </div>
       </div>
       <div class="p3time">
-        <a href="https://aj300542.github.io/txt/" class="d-block mb-1"><img src="img/word.jpg" alt="..."></a>
-        <a href="https://aj300542.github.io/33/" class="d-block mb-1"><img src="img/eskier.jpg" alt="..."></a>
-        <a href="https://aj300542.github.io/ds2/" class="d-block mb-1"><img src="img/p3-ds2.jpg" alt="..."></a>
+        <div class="img-container">
+          <a href="https://aj300542.github.io/txt/" class="d-block mb-1">
+            <img src="img/word.jpg" alt="...">
+            <div class="hover-text">碎碎念</div>
+          </a>
+        </div>
+        <div class="img-container">
+          <a href="https://aj300542.github.io/33/" class="d-block mb-1">
+            <img src="img/eskier.jpg" alt="...">
+            <div class="hover-text">33号远征队</div>
+          </a>
+        </div>
+        <div class="img-container">
+          <a href="https://aj300542.github.io/ds2/" class="d-block mb-1">
+            <img src="img/p3-ds2.jpg" alt="...">
+            <div class="hover-text">死亡搁浅2时钟</div>
+          </a>
+        </div>
       </div>
       <div class="dark-overlay"></div>
       <div class="position-relative z-index-1">
