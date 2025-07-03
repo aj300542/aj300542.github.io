@@ -42,52 +42,6 @@
 
     }
 
-    .codeframe,
-    .codeframe2 {
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      bottom: -5vh;
-      z-index: 999;
-      scale: 1;
-      overflow: hidden;
-      width: 15vh;
-      height: auto;
-      opacity: 0.75;
-    }
-
-    .codeframe {
-      left: 30vw;
-    }
-
-    .codeframe2 {
-      right: 30vw;
-    }
-
-    .p2time {
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      left: 10vw;
-      top: 35vh;
-      z-index: 999;
-    }
-
-    .p3time {
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      right: 10vw;
-      top: 35vh;
-      z-index: 999;
-    }
-
     .img-container {
       position: relative;
       display: inline-block;
@@ -110,14 +64,6 @@
       pointer-events: none;
     }
 
-    .p2time:hover .hover-text {
-      opacity: 1;
-    }
-
-    .p3time:hover .hover-text {
-      opacity: 1;
-    }
-
     .container:hover .hover-text {
       opacity: 1;
     }
@@ -128,49 +74,17 @@
 <body>
   <div class="main">
     <section class="bg-cover bg-center hero">
-      <div class="p2time">
-        <div class="img-container">
-          <a href="https://aj300542.github.io/time/" class="d-block mb-1">
-            <img src="img/p2_time.jpg" alt="..."></a>
-          <div class="hover-text">卡顿像素时钟</div>
-        </div>
-        <div class="img-container">
-          <a href="https://aj300542.github.io/cloud/" class="d-block mb-1">
-            <img src="img/p2_cloud.jpg" alt="..."></a>
-          <div class="hover-text">芸芸众生</div>
-        </div>
-        <div class="img-container">
-          <a href="https://aj300542.github.io/music/" class="d-block mb-1">
-            <img src="img/p2_music.png" alt="..."></a>
-          <div class="hover-text">随身听音乐复刻</div>
-        </div>
-      </div>
-      <div class="p3time">
-        <div class="img-container">
-          <a href="https://aj300542.github.io/txt/" class="d-block mb-1">
-            <img src="img/word.jpg" alt="...">
-            <div class="hover-text">碎碎念</div>
-          </a>
-        </div>
-        <div class="img-container">
-          <a href="https://aj300542.github.io/33/" class="d-block mb-1">
-            <img src="img/eskier.jpg" alt="...">
-            <div class="hover-text">33号远征队</div>
-          </a>
-        </div>
-        <div class="img-container">
-          <a href="https://aj300542.github.io/ds2/" class="d-block mb-1">
-            <img src="img/p3-ds2.jpg" alt="...">
-            <div class="hover-text">死亡搁浅2时钟</div>
-          </a>
-        </div>
-      </div>
       <div class="dark-overlay"></div>
       <div class="position-relative z-index-1">
         <div class="container text-center text-white">
           <p class="font-italic lead">Hi, how are you doing</p>
           <h1 class="text-uppercase my-4">My name is aj300</h1>
           <p class="font-italic lead">我会把项目上传到这里</p>
+          <div class="img-container">
+            <a href="https://aj300542.github.io/time/" class="d-block mb-1">
+              <img src="img/p2_time.jpg" alt="..."></a>
+            <div class="hover-text">卡顿像素时钟</div>
+          </div>
           <div class="img-container">
             <a href="https://aj300542.github.io/Clock/" class="d-block mb-1">
               <img src="img/p1_clock.jpg" alt="..."></a>
@@ -181,7 +95,18 @@
               <img src="img/p1_nixie.jpg" alt="..."></a>
             <div class="hover-text">复刻辉光管</div>
           </div>
+          <div class="img-container">
+            <a href="https://aj300542.github.io/txt/" class="d-block mb-1">
+              <img src="img/word.jpg" alt="...">
+              <div class="hover-text">碎碎念</div>
+            </a>
+          </div>
           <p class="font-italic lead">Clock for Kobo</p>
+          <div class="img-container">
+            <a href="https://aj300542.github.io/cloud/" class="d-block mb-1">
+              <img src="img/p2_cloud.jpg" alt="..."></a>
+            <div class="hover-text">芸芸众生</div>
+          </div>
           <div class="img-container">
             <a href="https://aj300542.github.io/kobo/" class="d-block mb-1">
               <img src="img/p1_kobo.jpg" alt="..."></a>
@@ -192,12 +117,35 @@
               <img src="img/p1_kobo2.jpg" alt="..."></a>
             <div class="hover-text">水墨数字</div>
           </div>
-          <a href="https://aj300542.github.io/digital/" class="d-block mb-1"><img src="img/p1_digital.jpg"
-              alt="..."></a>
+          <div class="img-container">
+            <a href="https://aj300542.github.io/33/" class="d-block mb-1">
+              <img src="img/eskier.jpg" alt="...">
+              <div class="hover-text">33号远征队</div>
+            </a>
+          </div>
+          <div class="img-container">
+            <a href="https://aj300542.github.io/music/" class="d-block mb-1">
+              <img src="img/p2_music.png" alt="..."></a>
+            <div class="hover-text">随身听音乐复刻</div>
+          </div>
+          <div class="img-container" style="width: 20vh; opacity: 0.75;">
+            <a href="https://aj300542.github.io/music/" class="d-block mb-1">
+              <img src="img/mm_facetoface_collect_qrcode_1711603406115.png" alt="..."></a>
+          </div>
+          <div class="img-container" style="width: 20vh; opacity: 0.75;">
+            <a href="https://aj300542.github.io/music/" class="d-block mb-1">
+              <img src="img/1711604188130.jpg" alt="..."></a>
+          </div>
+
+          <div class="img-container">
+            <a href="https://aj300542.github.io/ds2/" class="d-block mb-1">
+              <img src="img/p3-ds2.jpg" alt="...">
+              <div class="hover-text">死亡搁浅2时钟</div>
+            </a>
+          </div>
           <p class="font-italic lead">I truly appreciate your help</p>
           <p class="font-italic lead">非常感谢你的帮助</p>
-          <div class="codeframe"><img src="img/mm_facetoface_collect_qrcode_1711603406115.png" alt="..."></div>
-          <div class="codeframe2"><img src="img/1711604188130.jpg" alt="..."></div>
+
           <p class="font-italic lead"></p>Scroll down for more content</p>
 
         </div>
