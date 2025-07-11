@@ -67,6 +67,36 @@
     .container:hover .hover-text {
       opacity: 1;
     }
+    .cover-small-left,
+    .cover-small-right {
+      position: absolute;
+      top: 46vh;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      border-radius: 3vh;
+      overflow: hidden;
+    }
+
+    .cover-small-left {
+      left: -15vh;
+      width: 20vh;
+    }
+
+    .cover-small-right {
+      right: -15vh;
+      width: 28vh;
+    }
+
+    .cover-small-left:hover .hover-text {
+      opacity: 1;
+    }
+
+    .cover-small-right:hover .hover-text {
+      opacity: 1;
+    }
   </style>
 
 </head>
@@ -76,6 +106,16 @@
     <section class="bg-cover bg-center hero">
       <div class="dark-overlay"></div>
       <div class="position-relative z-index-1">
+        <div class="cover-small-left">
+          <a href="https://aj300542.github.io/future/">
+            <img src="img/luohan.png" alt="..."></a>
+          <div class="hover-text">过去<br>PAST<br>开发中</div>
+        </div>
+        <div class="cover-small-right">
+          <a href="https://aj300542.github.io/future/">
+            <img src="img/tiger2.png" alt="..."></a>
+          <div class="hover-text">未来<br>FUTURE</div>
+        </div>
         <div class="container text-center text-white">
           <p class="font-italic lead">Hi, how are you doing</p>
           <h1 class="text-uppercase my-4">My name is aj300</h1>
