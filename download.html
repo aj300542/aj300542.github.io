@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Screen - Multipurpose Template</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <!-- Bootstrap CSS-->
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <!-- Lightbox-->
+  <link rel="stylesheet" href="vendor/lightbox2/css/lightbox.min.css">
+  <!-- Parallax-->
+  <link rel="stylesheet" href="vendor/onepage-scroll/onepage-scroll.css">
+  <!-- theme stylesheet-->
+  <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+  <!-- Custom stylesheet - for your changes-->
+  <link rel="stylesheet" href="css/custom.css">
+  <!-- Favicon-->
+  <link rel="shortcut icon" href="favicon.png">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #000000;
+      color: #fb7c00;
+      font-family: 'Nixiebold-mini', Arial, sans-serif;
+      line-height: 2vh;
+      letter-spacing: 0.4em;
+      line-height: 1.5em;
+    }
+
+
+    img {
+      width: 23vh;
+      height: auto;
+      max-width: 100%;
+
+    }
+
+    .img-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .hover-text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      /* 或者自定义高度 */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.37);
+      color: #fff;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      text-align: center;
+    }
+
+    .container:hover .hover-text {
+      opacity: 1;
+    }
+
+    .cover-small-left,
+    .cover-small-right {
+      position: absolute;
+      top: 46vh;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      border-radius: 3vh;
+      overflow: hidden;
+    }
+
+    .cover-small-left {
+      left: -15vh;
+      width: 20vh;
+    }
+
+    .cover-small-right {
+      right: -15vh;
+      width: 28vh;
+    }
+
+    .cover-small-left:hover .hover-text {
+      opacity: 1;
+    }
+
+    .cover-small-right:hover .hover-text {
+      opacity: 1;
+    }
+
+    .hover-text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      font-size: 2vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.37);
+      color: #fff;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .cover-small:hover .hover-text {
+      opacity: 1;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="main">
+
+    <section>
+      <div class="d-flex h-100 align-items-center">
+        <div class="container">
+          <header class="text-center mb-2">
+            <h2 class="text-uppercase lined">源代码下载</h2>
+          </header>
+          <div class="row">
+            <div class="col-lg-12 text-center">
+              <p>你的支持是我前进的动力，谢谢支持</p>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <a href="img/poem-main.zip">
+                <img src="img/p1_POEM.jpg" style="width: 30vh;" alt="点击下载" />
+              </a>
+              <div class="hover-text">唐诗<br>169首</div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <a href="img/Clock-main.zip">
+                <img src="img/p1_clock.jpg" style="width: 30vh;" alt="点击下载" />
+              </a>
+              <div class="hover-text">辉光管IN-18<br>源代码下载</div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <a href="img/nixietube-main.zip">
+                <img src="img/p1_nixie.jpg" style="width: 30vh;" alt="点击下载" />
+              </a>
+              <div class="hover-text">辉光管字体<br>源代码下载</div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <a href="img/txt-main.zip" download="三傻.epub">
+                <img src="img/word.jpg" style="width: 30vh;" alt="点击下载" />
+              </a>
+              <div class="hover-text">碎碎念<br>源代码</div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <a href="img/music-main.zip">
+                <img src="img/p2_music.png" style="width: 30vh;" alt="点击下载" />
+              </a>
+              <div class="hover-text">音乐复刻<br>随身听</div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <a href="img/cloud-main.zip">
+                <img src="img/p2_cloud.jpg" style="width: 30vh;" alt="点击下载" />
+              </a>
+              <div class="hover-text">芸芸众生<br>源代码下载</div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <a>
+                <img src="img/1711604188130.jpg" style="height: 30vh;" alt="点击下载" />
+              </a>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <a href="img/ping-main.zip">
+                <img src="img/p1_ping.jpg" style="width: 30vh;" alt="点击下载" />
+              </a>
+              <div class="hover-text">三傻<br>电子书</div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <a>
+                <img src="img/mm_facetoface_collect_qrcode_1711603406115.png" style="height: 30vh;" alt="点击下载" />
+              </a>
+            </div>
+
+          </div>
+        </div>
+    </section>
+  </div>
+</body>
+
+</html>
