@@ -41,6 +41,7 @@
       width: 23vh;
       height: auto;
       max-width: 100%;
+      border-radius: 2vh;
 
     }
 
@@ -102,11 +103,64 @@
     .cover-small-right:hover .hover-text {
       opacity: 1;
     }
+        .video-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .video-container video {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      /* 保持比例完整显示 */
+      background: black;
+      /* 留黑边时填充背景色 */
+      transform: translate(0, 0) scale(1.2);
+      /* 保留放大效果 */
+      opacity: 0;
+    }
+
+    .video-container video.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .content {
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 20px;
+    }
   </style>
 
 </head>
 
 <body>
+    <div class="video-container">
+    <video class="active" autoplay muted>
+      <source src="img/sg30001-0120_web.mp4" type="video/mp4">
+    </video>
+    <video muted>
+      <source src="img/dm30001-0120_web.mp4" type="video/mp4">
+    </video>
+    <video muted>
+      <source src="img/gp0001-0120_web.mp4" type="video/mp4">
+    </video>
+    <video muted>
+      <source src="img/dm40001-0120_web.mp4" type="video/mp4">
+    </video>
+
+  </div>
   <div class="main">
     <section class="bg-cover bg-center hero">
       <div class="dark-overlay"></div>
@@ -125,7 +179,7 @@
         <div class="container text-center text-white">
           <p class="font-italic lead">Hi, how are you doing</p>
           <h1 class="text-uppercase my-4">My name is aj300</h1>
-          <p class="font-italic lead">推荐最右边的碎碎念，语音攻击txt</p>
+          <p class="font-italic lead">复古音乐 辉光管 桌面时钟 语音训练</p>
 
           <div class="img-container">
             <a href="https://aj300542.github.io/music/" class="d-block mb-1" target="_blank">
@@ -149,7 +203,7 @@
               <div class="hover-text">碎碎念</div>
             </a>
           </div>
-          <p class="font-italic lead">这里有音乐有大海有星星有时空</p>
+          <p class="font-italic lead">死亡搁浅 33号远征队主题时钟 emoji素材 寒食帖 书法小纸条 </p>
           <div class="img-container">
             <a href="https://aj300542.github.io/ds2/" class="d-block mb-1" target="_blank">
               <img src="img/p3-ds2.jpg" alt="...">
@@ -228,7 +282,7 @@
                   -webkit-background-clip: text;
                   -webkit-text-fill-color: transparent;
                   font-family: 'SimHei', 'Microsoft YaHei', sans-serif;
-                "  target="_blank">
+                " target="_blank">
               源代码下载超链接或捐赠页面
             </a>
           </p>
@@ -240,105 +294,85 @@
       </div>
       <div class="scroll-btn link-scroll"><i class="fas fa-angle-double-down"></i></div>
     </section>
-     <!-- <section id="1">
-      <div class="d-flex h-100 align-items-center">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-lg-6 mb-4 mb-lg-0">
-              <header class="text-center">
-                <h2 class="text-uppercase lined">┑(￣▽ ￣)┍</h2>
-              </header>
-              <p class="lead">Welcome to my gallery</p>
-              <p>╮(╯▽╰)╭ I'm glad you're here. Feel free to explore and enjoy the content.</p>
-              <p>╮(╯▽╰)╭
-                My name is Yixiang Wang.
-                I have been working in the construction industry for twenty years.
-                I have interests in graphic design, programming, gaming, music, movies, and books.
-              </p>
-              <p>┑(￣▽ ￣)┍ ┑(￣▽ ￣)┍ If you have any questions or need assistance, don’t hesitate to reach out. Enjoy your
-                visit. </p>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/onepage-scroll/jquery.onepage-scroll.min.js"></script>
+    <script src="vendor/lightbox2/js/lightbox.min.js"></script>
+    <script src="js/front.js"></script>
+    <script>
+      /*
+        行为：
+        - 每段视频播放结束后等待 PAUSE_MS（ms），然后立即切换到下一段（无过渡）
+        - 切换时立即设置下一段可见并播放，暂停并重置前一段以节省资源
+        - 处理 autoplay 限制（尝试 play() 并捕获拒绝），并在用户首次交互时启动
+      */
 
-              <p>┑(￣▽ ￣)┍ ┑(￣▽ ￣)┍ I truly value your opinion and expertise. Your support would mean a lot to me and
-                would greatly contribute to my work.
-              </p>
-            </div>
-            <div class="col-lg-6"><img src="img/about.jpg" alt="..." class="img-fluid rounded-circle d-block mx-auto">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <div class="d-flex h-100 align-items-center">
-        <div class="container">
-          <header class="text-center mb-2">
-            <h2 class="text-uppercase lined">Gallery</h2>
-          </header>
-          <div class="row">
-            <div class="col-lg-12 text-center">
-              <p>Welcome to my project gallery.</p>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4"><a href="img/portfolio-1.jpg" data-lightbox="image-1" data-title="bird"
-                class="d-block mb-1"><img src="img/portfolio-1.jpg" alt="..." class="img-fluid d-block mx-auto"></a>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4"><a href="img/portfolio-2.jpg" data-lightbox="image-1" data-title="car"
-                class="d-block mb-1"><img src="img/portfolio-2.jpg" alt="..." class="img-fluid d-block mx-auto"></a>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4"><a href="img/portfolio-3.jpg" data-lightbox="image-1" data-title="panda"
-                class="d-block mb-1"><img src="img/portfolio-3.jpg" alt="..." class="img-fluid d-block mx-auto"></a>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4"><a href="img/portfolio-4.jpg" data-lightbox="image-1"
-                data-title="Geometry" class="d-block mb-1"><img src="img/portfolio-4.jpg" alt="..."
-                  class="img-fluid d-block mx-auto"></a></div>
-            <div class="col-lg-4 col-md-6 mb-4"><a href="img/portfolio-5.jpg" data-lightbox="image-1"
-                data-title="Geographic" class="d-block mb-1"><img src="img/portfolio-5.jpg" alt="..."
-                  class="img-fluid d-block mx-auto"></a></div>
-            <div class="col-lg-4 col-md-6 mb-4"><a href="img/portfolio-6.jpg" data-lightbox="image-1"
-                data-title="architecture pattern" class="d-block mb-1"><img src="img/portfolio-6.jpg" alt="..."
-                  class="img-fluid d-block mx-auto"></a></div>
-            <div class="col-lg-4 col-md-6 mb-4"><a href="img/portfolio-7.jpg" data-lightbox="image-1"
-                data-title="the legend of zelda" class="d-block mb-1"><img src="img/portfolio-7.jpg" alt="..."
-                  class="img-fluid d-block mx-auto"></a></div>
-            <div class="col-lg-4 col-md-6 mb-4"><a href="img/portfolio-8.jpg" data-lightbox="image-1" data-title="space"
-                class="d-block mb-1"><img src="img/portfolio-8.jpg" alt="..." class="img-fluid d-block mx-auto"></a>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4"><a href="img/portfolio-9.jpg" data-lightbox="image-1"
-                data-title="Egyptology" class="d-block mb-1"><img src="img/portfolio-9.jpg" alt="..."
-                  class="img-fluid d-block mx-auto"></a></div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="bg-gray">
-      <div class="d-flex h-100 align-items-center">
-        <div class="container">
-          <header class="text-center mb-5">
-            <h2 class="text-uppercase lined">contact . support . page</h2>
-          </header>
-          <div class="row">
-            <div class="col-lg-6">
-              <p>email: sam300542@163.com .</p>
-              <p>phone: Hongkong +852 60779983</p>
-            </div>
-            <div class="col-lg-6">
-              <p>email: 44879425@qq.com .</p>
-              <p>phone: Shenzhen +86 13143832285</p>
-            </div>
-            <div class="col-lg-4"><img src="img/mm_facetoface_collect_qrcode_1711603406115.png" alt="..."
-                class="img-fluid rounded-circle d-block mx-auto"></div>
-            <div class="col-lg-4"><img src="img/1711604188130.jpg" alt="..."
-                class="img-fluid rounded-circle d-block mx-auto"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>-->
-  <!-- JavaScript files-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="vendor/onepage-scroll/jquery.onepage-scroll.min.js"></script>
-  <script src="vendor/lightbox2/js/lightbox.min.js"></script>
-  <script src="js/front.js"></script>
+      const PAUSE_MS = 1500;
+      const videos = Array.from(document.querySelectorAll('.video-container video'));
+      let current = 0;
+
+      // 预加载
+      videos.forEach(v => v.setAttribute('preload', 'auto'));
+
+      // 确保初始可见状态：只有 current 可见（opacity 用 inline style 控制）
+      function initState() {
+        videos.forEach((v, i) => {
+          if (i === current) {
+            v.style.opacity = '1';
+            v.classList.add('active');
+            try { v.play().catch(() => { }); } catch (e) { }
+          } else {
+            v.style.opacity = '0';
+            v.classList.remove('active');
+            try { v.pause(); v.currentTime = 0; } catch (e) { }
+          }
+        });
+      }
+      initState();
+
+      // 切换到指定索引（无过渡，立即切换）
+      async function switchTo(nextIndex) {
+        if (nextIndex === current) return;
+        const curV = videos[current];
+        const nextV = videos[nextIndex];
+
+        // 准备并播放下一个视频
+        try { nextV.currentTime = 0; } catch (e) { }
+        try { await nextV.play(); } catch (e) { }
+
+        // 立即显示 next，隐藏 current
+        nextV.style.opacity = '1';
+        nextV.classList.add('active');
+
+        try { curV.pause(); curV.currentTime = 0; } catch (e) { }
+        curV.style.opacity = '0';
+        curV.classList.remove('active');
+
+        current = nextIndex;
+      }
+
+      // 在当前视频 ended 后等待 PAUSE_MS 再切换
+      videos.forEach((v, i) => {
+        v.addEventListener('ended', () => {
+          const nextIndex = (i + 1) % videos.length;
+          setTimeout(() => {
+            // 如果 current 在等待期间被外部修改，则以最新 current 为准，计算下一个
+            // 使用当前索引 current 而不是 i，保证顺序正确
+            const safeNext = (current + 1) % videos.length;
+            switchTo(safeNext);
+          }, PAUSE_MS);
+        });
+      });
+
+      // 用户交互启动（处理 autoplay 被阻止的情况）
+      function startOnInteractionOnce() {
+        try { videos[current].play().catch(() => { }); } catch (e) { }
+        window.removeEventListener('click', startOnInteractionOnce);
+        window.removeEventListener('touchstart', startOnInteractionOnce);
+      }
+      window.addEventListener('click', startOnInteractionOnce, { once: true, passive: true });
+      window.addEventListener('touchstart', startOnInteractionOnce, { once: true, passive: true });
+    </script>
 </body>
 
 </html>
