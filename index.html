@@ -103,7 +103,8 @@
     .cover-small-right:hover .hover-text {
       opacity: 1;
     }
-        .video-container {
+
+    .video-container {
       position: fixed;
       top: 0;
       left: 0;
@@ -141,12 +142,94 @@
       background: rgba(0, 0, 0, 0.4);
       padding: 20px;
     }
+
+    /* 包裹容器，用于居中对齐和设置布局 */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    /* 图片容器样式 */
+    .img-container {
+      width: 200px;
+      /* 保持固定的宽度，或者使用百分比宽度，如 100% */
+      /* height: 200px;  <-- 删除或注释掉这一行 */
+      aspect-ratio: 4 / 2;
+      /* 设置宽高比为 4:3 */
+
+      /* 其他样式保持不变 */
+      position: relative;
+      opacity: 0.5;
+      transition: opacity 1s ease-in-out;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    /* 图片样式保持不变，但可以添加 object-fit: cover 来确保图片填满容器并保持比例 */
+    .img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* 关键：确保图片覆盖整个容器，可能会裁剪部分图片 */
+      display: block;
+    }
+
+    /* 悬停文字样式 */
+    .hover-text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      text-align: center;
+      padding: 10px;
+      opacity: 0;
+      /* 默认隐藏 */
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      /* 增加 transform 过渡，让效果更平滑 */
+      pointer-events: none;
+      /* 让文字不阻挡鼠标事件 */
+      transform: translateY(10px);
+      /* 默认向下偏移一点，为动画做准备 */
+    }
+
+    /* 新增：hover-text 的高亮状态 */
+    /* 新增：hover-text 的高亮状态 */
+    .hover-text.highlight {
+      opacity: 1;
+      transform: translateY(0);
+      background-color: rgba(0, 0, 0, 0.5);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 2em;
+      font-family: 'SimHei', 'Microsoft YaHei', sans-serif;
+    }
+
+    /* 激活元素样式 */
+    .img-container.active {
+      opacity: 1;
+      border-color: #ff6b35;
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      z-index: 10;
+    }
+
+    /* 激活元素的文字样式（不影响高亮） */
+    .img-container.active .hover-text:not(.highlight) {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 
 </head>
 
 <body>
-    <div class="video-container">
+  <div class="video-container">
     <video class="active" autoplay muted>
       <source src="img/sg30001-0120_web.mp4" type="video/mp4">
     </video>
@@ -178,7 +261,7 @@
 
         <div class="container text-center text-white">
           <p class="font-italic lead">Hi, how are you doing</p>
-          <h1 class="text-uppercase my-4">My name is aj300</h1>
+          <h1 class="text-uppercase my-4">Wish You All The Best</h1>
           <p class="font-italic lead">复古音乐 辉光管 桌面时钟 语音训练</p>
 
           <div class="img-container">
@@ -300,12 +383,94 @@
     <script src="vendor/lightbox2/js/lightbox.min.js"></script>
     <script src="js/front.js"></script>
     <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // 1. 获取所有需要的元素
+        const items = document.querySelectorAll('.img-container');
+        const allHoverTexts = document.querySelectorAll('.hover-text');
+
+        if (items.length === 0 || allHoverTexts.length === 0) return;
+
+        // 2. 走马灯配置参数
+        const config = {
+          initialIndex: 0,
+          interval: 1000,
+          opacityGradients: [1.0, 0.85, 0.7, 0.55, 0.4, 0.25],
+          minOpacity: 0.15
+        };
+
+        let currentIndex = config.initialIndex;
+        const totalItems = items.length;
+        let animationTimer;
+
+        // 3. 计算元素透明度
+        const getOpacityByDistance = (distance) => {
+          return config.opacityGradients[distance] ?? config.minOpacity;
+        };
+
+        // 4. 更新所有元素的透明度和激活状态
+        function updateOpacities() {
+          items.forEach((item, index) => {
+            let distance = Math.abs(index - currentIndex);
+            distance = Math.min(distance, totalItems - distance);
+            item.style.opacity = getOpacityByDistance(distance);
+            item.classList.toggle('active', index === currentIndex);
+          });
+        }
+
+        // 5. 切换到下一个元素
+        function showNextItem() {
+          currentIndex = (currentIndex + 1) % totalItems;
+          updateOpacities();
+        }
+
+        // 6. 初始化走马灯
+        updateOpacities();
+        animationTimer = setInterval(showNextItem, config.interval);
+
+        // ================== 新增：鼠标悬浮高亮逻辑 ==================
+
+        // 使用 mouseover/mouseout 以获得更好的冒泡行为
+        document.addEventListener('mouseover', (event) => {
+          // 检查鼠标是否进入 .img-container 或其内部元素
+          if (event.target.closest('.img-container')) {
+            allHoverTexts.forEach(text => text.classList.add('highlight'));
+          }
+        });
+
+        document.addEventListener('mouseout', (event) => {
+          // 检查鼠标是否离开 .img-container 区域
+          const isLeavingImgContainer = event.target.closest('.img-container');
+          // 检查鼠标是否进入了另一个 .img-container
+          const isEnteringAnotherImgContainer = event.relatedTarget && event.relatedTarget.closest('.img-container');
+
+          if (isLeavingImgContainer && !isEnteringAnotherImgContainer) {
+            setTimeout(() => {
+              // 再次确认鼠标已离开所有图片区域
+              if (!document.querySelector('.img-container:hover')) {
+                allHoverTexts.forEach(text => text.classList.remove('highlight'));
+              }
+            }, 100);
+          }
+        });
+
+        // ===========================================================
+
+        // 可选：暴露暂停/继续函数到全局
+        window.pauseAnimation = () => clearInterval(animationTimer);
+        window.resumeAnimation = () => {
+          if (!animationTimer) {
+            animationTimer = setInterval(showNextItem, config.interval);
+          }
+        };
+      });
+    </script>
+    <script>
       /*
-        行为：
-        - 每段视频播放结束后等待 PAUSE_MS（ms），然后立即切换到下一段（无过渡）
-        - 切换时立即设置下一段可见并播放，暂停并重置前一段以节省资源
-        - 处理 autoplay 限制（尝试 play() 并捕获拒绝），并在用户首次交互时启动
-      */
+  行为：
+  - 每段视频播放结束后等待 PAUSE_MS（ms），然后立即切换到下一段（无过渡）
+  - 切换时立即设置下一段可见并播放，暂停并重置前一段以节省资源
+  - 处理 autoplay 限制（尝试 play() 并捕获拒绝），并在用户首次交互时启动
+*/
 
       const PAUSE_MS = 1500;
       const videos = Array.from(document.querySelectorAll('.video-container video'));
