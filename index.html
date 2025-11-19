@@ -384,7 +384,7 @@
     <script src="js/front.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        // 1. 获取所有需要的元素
+        // 1. 获取所有需要的元素（.img-container 和 .hover-text）
         const items = document.querySelectorAll('.img-container');
         const allHoverTexts = document.querySelectorAll('.hover-text');
 
@@ -393,7 +393,7 @@
         // 2. 走马灯配置参数
         const config = {
           initialIndex: 0,
-          interval: 1000,
+          interval: 1000, // 每秒切换一次
           opacityGradients: [1.0, 0.85, 0.7, 0.55, 0.4, 0.25],
           minOpacity: 0.15
         };
@@ -402,7 +402,7 @@
         const totalItems = items.length;
         let animationTimer;
 
-        // 3. 计算元素透明度
+        // 3. 计算元素透明度（根据与当前索引的距离）
         const getOpacityByDistance = (distance) => {
           return config.opacityGradients[distance] ?? config.minOpacity;
         };
@@ -410,42 +410,53 @@
         // 4. 更新所有元素的透明度和激活状态
         function updateOpacities() {
           items.forEach((item, index) => {
+            // 计算当前元素与激活元素的最小距离（环形走马灯）
             let distance = Math.abs(index - currentIndex);
             distance = Math.min(distance, totalItems - distance);
+
+            // 设置透明度和激活类
             item.style.opacity = getOpacityByDistance(distance);
             item.classList.toggle('active', index === currentIndex);
           });
         }
 
-        // 5. 切换到下一个元素
+        // 5. 切换到下一个元素（核心走马灯逻辑）
         function showNextItem() {
-          currentIndex = (currentIndex + 1) % totalItems;
+          currentIndex = (currentIndex + 1) % totalItems; // 环形递增
           updateOpacities();
         }
 
-        // 6. 初始化走马灯
+        // 6. 初始化走马灯（页面加载后立即启动）
         updateOpacities();
         animationTimer = setInterval(showNextItem, config.interval);
 
-        // ================== 新增：鼠标悬浮高亮逻辑 ==================
-
-        // 使用 mouseover/mouseout 以获得更好的冒泡行为
+        // ================== 核心改动：鼠标悬浮逻辑 ==================
         document.addEventListener('mouseover', (event) => {
-          // 检查鼠标是否进入 .img-container 或其内部元素
-          if (event.target.closest('.img-container')) {
+          // 找到当前悬浮的 .img-container 元素
+          const targetImg = event.target.closest('.img-container');
+
+          if (targetImg) {
+            // 关键：获取悬浮元素在 items 集合中的索引
+            const targetIndex = Array.from(items).findIndex(item => item === targetImg);
+
+            // 只有找到有效索引时，才更新走马灯起始位置
+            if (targetIndex !== -1) {
+              currentIndex = targetIndex; // 从悬浮元素开始
+              updateOpacities(); // 立即更新界面状态
+            }
+
+            // 原有高亮逻辑保留
             allHoverTexts.forEach(text => text.classList.add('highlight'));
           }
         });
 
+        // 鼠标离开时取消高亮（原有逻辑不变）
         document.addEventListener('mouseout', (event) => {
-          // 检查鼠标是否离开 .img-container 区域
           const isLeavingImgContainer = event.target.closest('.img-container');
-          // 检查鼠标是否进入了另一个 .img-container
           const isEnteringAnotherImgContainer = event.relatedTarget && event.relatedTarget.closest('.img-container');
 
           if (isLeavingImgContainer && !isEnteringAnotherImgContainer) {
             setTimeout(() => {
-              // 再次确认鼠标已离开所有图片区域
               if (!document.querySelector('.img-container:hover')) {
                 allHoverTexts.forEach(text => text.classList.remove('highlight'));
               }
@@ -455,7 +466,7 @@
 
         // ===========================================================
 
-        // 可选：暴露暂停/继续函数到全局
+        // 可选：暴露暂停/继续函数到全局（方便外部调用）
         window.pauseAnimation = () => clearInterval(animationTimer);
         window.resumeAnimation = () => {
           if (!animationTimer) {
