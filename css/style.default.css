@@ -19,7 +19,6 @@ section {
 }
 
 .hero {
-  background: url(../img/macbook-juice.jpg);
   min-height: 100vh;
   display: -ms-flexbox;
   display: flex;
